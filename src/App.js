@@ -4,6 +4,7 @@ import Editor from "./components/Editor";
 import Split from "react-split";
 import { nanoid } from "nanoid";
 import "./styles/App.css";
+import "react-mde/lib/styles/css/react-mde-all.css";
 
 export default function App() {
     const [notes, setNotes] = React.useState([])
