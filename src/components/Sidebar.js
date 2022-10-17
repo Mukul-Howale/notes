@@ -1,12 +1,5 @@
 import React from "react";
 
-/*
-    Challenge: Try to figure out a way to display only the
-    first line of note.body as the note summary in the
-    sidebar.
-    {note.body.split("\n").filter((line) => {return line !== ""})[0]}
-*/
-
 export default function Sidebar(props) {
     const noteElements = props.notes.map((note, index) => (
         <div key={note.id}>
