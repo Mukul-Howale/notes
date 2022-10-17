@@ -7,18 +7,21 @@ import "./styles/App.css";
 import "react-mde/lib/styles/css/react-mde-all.css";    // used for markdown styling
 
 /**
-     * Challenge_1:
-     * 1. Every time the `notes` array changes, save it 
-     *    in localStorage. You'll need to use JSON.stringify()
-     *    to turn the array into a string to save in localStorage.
-     * 2. When the app first loads, initialize the notes state
-     *    with the notes saved in localStorage. You'll need to
-     *    use JSON.parse() to turn the stringified array back
-     *    into a real JS array.
-     */
+    * Challenge:
+    * Lazily initialize our ` notes` state so it doesn't
+    * reach into localStorage on every single re-render
+    * of the App component
+*/
 
 export default function App() {
-    const [notes, setNotes] = React.useState(JSON.parse(localStorage.getItem("notes")) || [])
+    //By adding fn for returning value while state initialization, 
+    //the value is loaded once when the component is rendered at the first time
+    //This is lazy state initialization
+    //If the state is not initialized lazily, 
+    //(in the below code) it will keep on getting the locally stored value at each render of the component
+    const [notes, setNotes] = React.useState(() => {
+        return JSON.parse(localStorage.getItem("notes")) || []
+    })
 
     const [currentNoteId, setCurrentNoteId] = React.useState(
         (notes[0] && notes[0].id) || ""
