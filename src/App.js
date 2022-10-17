@@ -6,13 +6,6 @@ import { nanoid } from "nanoid";
 import "./styles/App.css";
 import "react-mde/lib/styles/css/react-mde-all.css";    // used for markdown styling
 
-/**
-    * Challenge:
-    * Lazily initialize our ` notes` state so it doesn't
-    * reach into localStorage on every single re-render
-    * of the App component
-*/
-
 export default function App() {
     //By adding fn for returning value while state initialization, 
     //the value is loaded once when the component is rendered at the first time

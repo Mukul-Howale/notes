@@ -61,9 +61,6 @@ button:focus {
     overflow: hidden;
     width: 100%;
     cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .title--delete {
@@ -84,12 +81,16 @@ button:focus {
 .text-snippet {
     padding-inline: 5px;
     font-size: 0.8rem;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.2rem;
     color: #4A4E74;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.summary{
+    font-weight: 400;
 }
 
 .selected-note {
@@ -98,7 +99,12 @@ button:focus {
 
 .selected-note .text-snippet {
     color: white;
-    font-weight: 700;
+    font-weight: 800;
+}
+
+.selected-note .summary{
+    color: white;
+    font-weight: 600;
 }
 
 .gutter {
