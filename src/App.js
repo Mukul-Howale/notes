@@ -7,8 +7,7 @@ import "./styles/App.css";
 import "react-mde/lib/styles/css/react-mde-all.css";    // used for markdown styling
 
 /**
-* Challenge: When the user edits a note, reposition
-* it in the list of notes to the top of the list
+* Challenge: complete and implement the deleteNote function
 */
 
 export default function App() {
@@ -34,7 +33,7 @@ export default function App() {
             id: nanoid(),
             body: "# Type your markdown note's title here"
         }
-        setNotes(oldNotes => [newNote, ...oldNotes])
+        setNotes(oldNotes => [...oldNotes, newNote])
         setCurrentNoteId(newNote.id)
     }
 
@@ -48,6 +47,13 @@ export default function App() {
             }
             return newNote
         })
+    }
+
+    function deleteNote(event,noteId){
+        event.stopPropagation()
+        setNotes(oldNotes => oldNotes.filter(note => {
+            return note.id !== noteId
+        }))
     }
 
     function findCurrentNote() {
@@ -71,6 +77,7 @@ export default function App() {
                 currentNote={findCurrentNote()}
                 setCurrentNoteId={setCurrentNoteId}
                 newNote={createNewNote}
+                deleteNote={deleteNote}
                 />
                 {
                 currentNoteId &&
